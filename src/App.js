@@ -34,7 +34,7 @@ class App extends Component {
             <ul>
               {items.map(item =>(
                   <li key={item.quote_id}>
-                    Quote: {item.quote} | Author {item.author}
+                    Quote: {item.quote} <br/><span>Author: {item.author}</span>
                   </li>
               ))}
             </ul>
