@@ -1,47 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
+import './App.css';
+import Index from  './components/Index';
 
-class App extends Component {
-
-  constructor(props){
-    super(props);
-    this.state = {
-      items: [],
-      isLoaded: false,
-    }
-  }
-
-  componentDidMount(){
-    
-    fetch('https://www.breakingbadapi.com/api/quotes')
-    .then(res => res.json())
-    .then(json => {
-      this.setState({
-        isLoaded: true,
-        items: json,
-      })
-    });
-  }
-  render() {
-      var{ isLoaded, items } = this.state;
-
-      if (!isLoaded) {
-        console.log(items)
-        return <div>Loading...</div>
-      }
-      else {
-      return(
-        <div class="App">
-            <ul>
-              {items.map(item =>(
-                  <li key={item.quote_id}>
-                    Quote: {item.quote} <br/><span>Author: {item.author}</span>
-                  </li>
-              ))}
-            </ul>
-        </div>
-      );
-    }
-  }
-
+function App() {
+  return (
+    <div className="App">
+      <Index />
+    </div>
+  );
 }
+
 export default App;
