@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-
-
 class ListOfQuotes extends Component {
     constructor(props) {
         super(props)
@@ -28,13 +26,14 @@ class ListOfQuotes extends Component {
     render() {
         const { posts, errorMsg } = this.state
         return (
-            <div>
+            <div className='mainCard'> 
                 {
                     posts.length ?
-                posts.map(post => <div key={post.quote_id}><h3>{post.quote}</h3><br/><p>-{post.author}</p></div>) : 
+                posts.map(post => <div key={post.quote_id}><h3>{post.quote}</h3><p>-{post.author}</p><br/></div>) : 
                     null
                 }
                 { errorMsg ? <div>{errorMsg}</div> : null }
+                <button>New Quote</button>
             </div>
         )
     }
